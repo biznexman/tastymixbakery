@@ -22,7 +22,7 @@
 
 
 			<div class="col-sm-3">
-				@section ('grid10_panel_body')
+				@section ('grid11_panel_body')
 				<div class="text-center">
 					<div class="form-group">
 			            <label>Bill No.</label>
@@ -30,7 +30,7 @@
 			        </div>
 				</div>
 				@endsection
-				@include('widgets.panel', array('controls'=> true, 'as'=> 'grid10'))
+				@include('widgets.panel', array('controls'=> true, 'as'=> 'grid11'))
 			</div>
 
 			<div class="col-sm-3">

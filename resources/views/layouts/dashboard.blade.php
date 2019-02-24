@@ -155,6 +155,9 @@
                                 <li {{ (Request::is('*bills') ? 'class="active"' : '') }}>
                                     <a href="{{ url ('bills') }}">Bills</a>
                                 </li>
+                                <li {{ (Request::is('*onetimepayment') ? 'class="active"' : '') }}>
+                                    <a href="{{ url ('onetimepayment') }}">One-off Payment</a>
+                                </li>
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>

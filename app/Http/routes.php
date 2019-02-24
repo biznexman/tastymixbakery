@@ -41,6 +41,11 @@ Route::get('/flaggedreconciliation', function()
 	return View::make('flaggedreconciliation');
 });
 
+Route::get('/onetimepayment', function()
+{
+	return View::make('onetimepayment');
+});
+
 
 
 
