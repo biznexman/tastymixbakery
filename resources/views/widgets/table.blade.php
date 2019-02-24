@@ -7,9 +7,9 @@
 			<th>Bill Amount</th>
 			<th>Paid Amount</th>
 			<th>Bill Created</th>
-			<th>View</th>
-			<th>Update</th>
-			<th>Delete</th>
+			<th></th>
+			<th></th>
+			<th></th>
 		</tr>
 	</thead>
 	<tbody>
@@ -20,9 +20,21 @@
 			<td>75,000</td>
 			<td></td>
 			<td>03/02/2019</td>
-			<td></td>
-			<td></td>
-			<td></td>
+			<td>
+				<a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                    <i class="fa fa-eye fa-fw"></i> 
+                </a>
+			</td>
+			<td>
+				<a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                    <i class="fa fa-pencil fa-fw"></i>
+                </a>
+			</td>
+			<td>
+				<a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                    <i class="fa fa-trash-o fa-fw"></i>
+                </a>
+			</td>
 		</tr>
 		<tr>
 			<td>10002</td>
@@ -31,9 +43,21 @@
 			<td>46,000</td>
 			<td>25,000</td>
 			<td>03/02/2019</td>
-			<td></td>
-			<td></td>
-			<td></td>
+			<td>
+				<a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                    <i class="fa fa-eye fa-fw"></i>
+                </a>
+			</td>
+			<td>
+				<a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                    <i class="fa fa-pencil fa-fw"></i>
+                </a>
+			</td>
+			<td>
+				<a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                    <i class="fa fa-trash-o fa-fw"></i>
+                </a>
+			</td>
 		</tr>
 		<tr>
 			<td>10003</td>
@@ -42,9 +66,21 @@
 			<td>20,000</td>
 			<td>13,000</td>
 			<td>03/02/2019</td>
-			<td></td>
-			<td></td>
-			<td></td>
+			<td>
+				<a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                    <i class="fa fa-eye fa-fw"></i>
+                </a>
+			</td>
+			<td>
+				<a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                    <i class="fa fa-pencil fa-fw"></i>
+                </a>
+			</td>
+			<td>
+				<a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                    <i class="fa fa-trash-o fa-fw"></i>
+                </a>
+			</td>
 		</tr>
 	</tbody>
 </table>
