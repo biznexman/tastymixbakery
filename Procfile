@@ -1,1 +1,1 @@
-"web: vendor/bin/heroku-php-apache2 public/"
+"https: vendor/bin/heroku-php-apache2 public/"
