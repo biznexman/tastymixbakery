@@ -16,6 +16,36 @@ Route::get('/', function()
 	return View::make('home');
 });
 
+Route::get('/newsupplier', function()
+{
+	return View::make('newsupplier');
+});
+
+Route::get('/viewsuppliers', function()
+{
+	return View::make('viewsuppliers');
+});
+
+Route::get('/bills', function()
+{
+	return View::make('bills');
+});
+
+Route::get('/pendingpayments', function()
+{
+	return View::make('pendingpayments');
+});
+
+Route::get('/flaggedreconciliation', function()
+{
+	return View::make('flaggedreconciliation');
+});
+
+
+
+
+
+
 Route::get('/charts', function()
 {
 	return View::make('mcharts');
