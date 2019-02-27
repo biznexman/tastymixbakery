@@ -44,7 +44,7 @@ class ApiController extends Controller {
 
 		//$pagination->setItems($results);
 		//$pagination->setPath('/tastymixbakery/public/transfers?page='.$page);
-		var_dump($pagination); exit;
+		//var_dump($pagination); exit;
 
         return view('transfers')->with('results', $results)
         						->with('pagination', $pagination);
