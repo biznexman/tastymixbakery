@@ -30,8 +30,7 @@
 			"php artisan clear-compiled",
 			"php artisan optimize",
 			"chmod -R 777 public/",
-			"chmod -R 777 app/",
-			"chmod -R 777 app/bootstrap"
+			"chmod -R 777 app/"
 		],
 		"post-update-cmd": [
 			"php artisan clear-compiled",
