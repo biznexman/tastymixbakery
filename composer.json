@@ -6,7 +6,8 @@
 	"type": "project",
 	"require": {
 		"guzzlehttp/guzzle": "~6.0",
-		"laravel/framework": "5.1.*"
+		"laravel/framework": "5.1.*",
+		"mews/captcha": "~2.0."
 		
 	},
 	"require-dev": {
