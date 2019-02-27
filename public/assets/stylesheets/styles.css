@@ -1316,6 +1316,7 @@ mark,
 }
 .text-left {
   text-align: left;
+  border-bottom: 1px solid #cea;
 }
 .text-right {
   text-align: right;
@@ -1344,6 +1345,64 @@ mark,
 .text-primary {
   color: #337ab7;
 }
+
+
+
+
+
+
+.div-table {
+  display: table;         
+  width: auto;         
+  background-color: #eee;         
+  border: 1px solid #666666;         
+  border-spacing: 5px; /* cellspacing:poor IE support for  this */
+}
+.div-table-row {
+  display: table-row;
+  width: auto;
+  clear: both;
+}
+.div-table-col-narrow {
+  float: left; /* fix for  buggy browsers */
+  display: table-column;         
+  width: 90px;
+  font-size: 12px;
+  text-align: left;
+}
+
+.div-table-col-wide {
+  float: left; /* fix for  buggy browsers */
+  display: table-column;         
+  width: 150px;
+  font-size: 12px;
+  text-align: left;
+}
+
+.div-table-colhead-narrow {
+  float: left; /* fix for  buggy browsers */
+  display: table-column;
+  border-bottom: 1px solid #666666;           
+  width: 90px;
+  font-size: 12px;
+  font-weight: bolder;
+  text-align: left;
+}
+
+.div-table-colhead-wide {
+  float: left; /* fix for  buggy browsers */
+  display: table-column;
+  border-bottom: 1px solid #666666;           
+  width: 150px;
+  font-size: 12px;
+  font-weight: bolder;
+  text-align: left;
+}
+
+
+
+
+
 a.text-primary:hover {
   color: #286090;
 }
@@ -1768,6 +1827,15 @@ pre code {
 }
 .col-xs-offset-0 {
   margin-left: 0;
+}
+.icon-success {
+    color: #5CB85C;
+}
+.icon-abandoned {
+    color: #a8a8a8;
+}
+.icon-pending {
+    color: #ffab05;
 }
 @media (min-width: 768px) {
   .col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12 {
@@ -5788,6 +5856,7 @@ button.close {
   min-height: 16.42857143px;
   padding: 15px;
   border-bottom: 1px solid #e5e5e5;
+  font-weight: bolder;
 }
 .modal-header .close {
   margin-top: -2px;

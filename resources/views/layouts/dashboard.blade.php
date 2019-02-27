@@ -138,37 +138,19 @@
                             <a href="{{ url ('') }}"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-group fa-fw"></i> Manage Suppliers<span class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-money fa-fw"></i> Do Business<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
-                                <li {{ (Request::is('*newsupplier') ? 'class="active"' : '') }}>
-                                    <a href="{{ url ('newsupplier') }}">New Supplier</a>
+                                <li {{ (Request::is('*transactions') ? 'class="active"' : '') }}>
+                                    <a href="{{ url ('transactions') }}">Transactions</a>
                                 </li>
-                                <li {{ (Request::is('*viewsuppliers') ? 'class="active"' : '') }}>
-                                    <a href="{{ url ('viewsuppliers') }}">View Suppliers</a>
+                                <li {{ (Request::is('*transfers') ? 'class="active"' : '') }}>
+                                    <a href="{{ url ('transfers') }}">Transfers</a>
                                 </li>
-                            </ul>
-                            <!-- /.nav-second-level -->
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-money fa-fw"></i> Bills Management<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li {{ (Request::is('*bills') ? 'class="active"' : '') }}>
-                                    <a href="{{ url ('bills') }}">Bills</a>
+                                <li {{ (Request::is('*recipients') ? 'class="active"' : '') }}>
+                                    <a href="{{ url ('recipients') }}">Recipients</a>
                                 </li>
-                                <li {{ (Request::is('*onetimepayment') ? 'class="active"' : '') }}>
-                                    <a href="{{ url ('onetimepayment') }}">One-off Payment</a>
-                                </li>
-                            </ul>
-                            <!-- /.nav-second-level -->
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Reporting<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li {{ (Request::is('*pendingpayments') ? 'class="active"' : '') }}>
-                                    <a href="{{ url ('pendingpayments') }}">Pending Payments</a>
-                                </li>
-                                <li {{ (Request::is('*flaggedreconciliation') ? 'class="active"' : '') }}>
-                                    <a href="{{ url ('flaggedreconciliation') }}">Flagged for Reconcilliation</a>
+                                <li {{ (Request::is('*transactions') ? 'class="active"' : '') }}>
+                                    <a href="{{ url ('transactions') }}">Balance History</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->

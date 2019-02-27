@@ -1,5 +1,5 @@
 @extends('layouts.dashboard')
-@section('page_heading','Pending Payments')
+@section('page_heading','Bill Paymet')
 @section('section')
            
            

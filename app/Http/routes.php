@@ -16,6 +16,24 @@ Route::get('/', function()
 	return View::make('home');
 });
 
+Route::get('/transfers2', [
+    //'middleware' => 'auth',
+    'uses' => 'HomeController@transfers'
+]);
+
+
+
+Route::get('/transfers', [
+    //'middleware' => 'auth',
+    'uses' => 'ApiController@transfersList'
+]);
+
+
+
+
+ 
+
+
 Route::get('/newsupplier', function()
 {
 	return View::make('newsupplier');
@@ -26,10 +44,15 @@ Route::get('/viewsuppliers', function()
 	return View::make('viewsuppliers');
 });
 
-Route::get('/bills', function()
-{
-	return View::make('bills');
-});
+Route::get('/payments', [
+    //'middleware' => 'auth',
+    'uses' => 'HomeController@payments'
+]);
+
+Route::get('/bills', [
+    //'middleware' => 'auth',
+    'uses' => 'HomeController@bills'
+]);
 
 Route::get('/pendingpayments', function()
 {
@@ -45,7 +68,6 @@ Route::get('/onetimepayment', function()
 {
 	return View::make('onetimepayment');
 });
-
 
 
 
