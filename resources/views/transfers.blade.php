@@ -62,7 +62,7 @@
 			@endforeach
 			
 			<tr>
-				<td colspan="4"></td>
+				<td colspan="4">{{ $pagination->render() }}</td>
 				<td colspan="2"></br>
 					<a href="{{ url ('newProject') }}"> <button type="button" class="btn btn-primary">New Transfer</button></a>
 				</td>
