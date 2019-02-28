@@ -33,14 +33,18 @@
 		                    	<option value="{{ $result['code'] }}">{{ $result['name'] }}</option>
 		                    @endforeach
 		                </select>
+		                <p class="text-warning">Banks currently provisioned on testing environment (First Bank, Access Bank)</p>
 		            </div>
+
+
 
 		            <label>Account Number</label>
 		            <div class="form-group input-group">
                         <input type="text" name="accountnumber" onkeypress="return event.charCode >= 48 && event.charCode <= 57" name="primary_device" class="form-control" value="0000000000">
+                        <p class="text-warning">Account Number field has been populated with provisioned Test Account</p>
                     </div>
 
-		            <p class="text-warning">Account Number field has been populated with provisioned Test Account</p><br>
+		            <br>
 		            <button type="submit" class="btn btn-default">Create Recipient</button>
 		        </form>
 		    </div>

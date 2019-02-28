@@ -11,10 +11,10 @@
 |
 */
 
-Route::get('/', function()
-{
-	return View::make('home');
-});
+Route::get('/', [
+    //'middleware' => 'auth',
+    'uses' => 'ApiController@paystackBalance'
+]);
 
 Route::get('/transactions', [
     //'middleware' => 'auth',

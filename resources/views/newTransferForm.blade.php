@@ -17,7 +17,7 @@
 		                    	<option value="{{ $result['recipient_code'] }}">{{ $result['name'] }}</option>
 		                    @endforeach
 		                </select>
-		                <a href=""> or add new Transfer Recipient</a>
+		                <a href="{{url('transferRecipients/create')}}"> or add new Transfer Recipient</a>
 		            </div>
 
 

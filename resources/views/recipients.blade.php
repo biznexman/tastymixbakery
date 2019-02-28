@@ -47,6 +47,8 @@
 			<tr>
 				<th>Recipient Details</th>
 				<th>Account Description</th>
+				<th>Account Number</th>
+				<th>Created</th>
 				<th>Status</th>
 				<th></th>
 			</tr>
@@ -66,8 +68,10 @@
 				?>
 
 			<tr>
-				<td>{{ $result['name']." ".$result['currency']." to ".$result['details']['bank_name'] }}</td>
-				<td>{{ $result['type']." ".$result['description'] }}</td>
+				<td>{{ "<strong>".$result['name']."</strong>, ".$result['currency']." - ".$result['details']['bank_name'] }}</td>
+				<td>{{ $result['type'].", ".$result['description'] }}</td>
+				<td>{{ $result['details']['account_number'] }}</td>
+				<td>{{ date('D jS, M Y hA', strtotime($result['createdAt'])) }}</td>
 				<td>
 					<i class="fa fa-circle {{$statusclass}} fa-fw"></i>
 				</td>
@@ -82,8 +86,8 @@
 			@endforeach
 			
 			<tr>
-				<td colspan="3">{{ $pagination->render() }}</td>
-				<td colspan="2">
+				<td colspan="4">{{ $pagination->render() }}</td>
+				<td colspan="3">
                     <a href="{{url('transferRecipients/create')}}"> <button type="button" class="btn btn-primary">New Recipient</button></a>
 				</td>
 			</tr>

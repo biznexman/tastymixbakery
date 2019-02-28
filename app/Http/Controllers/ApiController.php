@@ -14,6 +14,23 @@ use Illuminate\Pagination\LengthAwarePaginator;
 
 class ApiController extends Controller {
 
+	public function paystackBalance()
+    {
+
+    	$client = new Client();
+
+        $res = $client->request('GET', 'https://api.paystack.co/balance',
+								    ['headers' => 
+								        ['Authorization' => "Bearer sk_test_b7eb5f49afc897786bb058635dce32dcb5f7d128"]
+								    ]
+							    );
+
+        $results = (object)json_decode($res->getBody(), true);
+
+        return view('home')->with('results',$results);
+     
+    }
+
 	public function transfersList(Request $page)
     {
         
@@ -202,8 +219,6 @@ class ApiController extends Controller {
 									    ]
 								    );
 	        $results = (object)json_decode($res->getBody(), true);
-
-	        echo 1; exit;
 
 	        $this->transferRecipientsList();
         }
