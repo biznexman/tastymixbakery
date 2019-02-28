@@ -143,14 +143,14 @@
                                 <li {{ (Request::is('*transactions') ? 'class="active"' : '') }}>
                                     <a href="{{ url ('transactions') }}">Transactions</a>
                                 </li>
-                                <li {{ (Request::is('*transfers') ? 'class="active"' : '') }}>
-                                    <a href="{{ url ('transfers') }}">Transfers</a>
+                                <li {{ (Request::is('*initiateTransfer/show') ? 'class="active"' : '') }}>
+                                    <a href="{{ url ('initiateTransfer/show') }}">Transfers</a>
                                 </li>
-                                <li {{ (Request::is('*recipients') ? 'class="active"' : '') }}>
-                                    <a href="{{ url ('recipients') }}">Recipients</a>
+                                <li {{ (Request::is('*transferRecipients/show') ? 'class="active"' : '') }}>
+                                    <a href="{{ url ('transferRecipients/show') }}">Recipients</a>
                                 </li>
-                                <li {{ (Request::is('*transactions') ? 'class="active"' : '') }}>
-                                    <a href="{{ url ('transactions') }}">Balance History</a>
+                                <li {{ (Request::is('*balancehistory') ? 'class="active"' : '') }}>
+                                    <a href="{{ url ('balancehistory') }}">Balance History</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->

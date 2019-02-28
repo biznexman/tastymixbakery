@@ -1400,7 +1400,10 @@ mark,
 }
 
 
-
+.bold-header{
+  font-weight: bolder;
+  color: green;
+}
 
 
 a.text-primary:hover {

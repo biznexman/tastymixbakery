@@ -1,6 +1,5 @@
 @extends('layouts.dashboard')
-@section('page_heading','Transfers')
-
+@section('page_heading','Transfer Recipients')
 @section('css')
     <style>
         .loading {
@@ -46,10 +45,9 @@
 	<table class="table table-hover">
 		<thead>
 			<tr>
-				<th>Transfer Details</th>
-				<th>Reason</th>
+				<th>Recipient Details</th>
+				<th>Account Description</th>
 				<th>Status</th>
-				<th>Date</th>
 				<th></th>
 			</tr>
 		</thead>
@@ -59,24 +57,20 @@
 
 				<?php
 
-					if($result['status']=='success'){
+					if($result['active'] === true){
 						$statusclass = 'icon-success';
 					}
-					elseif($result['status']=='abandoned'){
-						$statusclass = 'icon-abandoned';
-					}
-					elseif($result['status']=='otp'){
+					else{
 						$statusclass = 'icon-pending';
 					}
 				?>
 
 			<tr>
-				<td>{{ $result['currency']." ".number_format(($result['amount']/100),0)." to ".$result['recipient']['name'] }}</td>
-				<td>{{ $result['reason'] }}</td>
+				<td>{{ $result['name']." ".$result['currency']." to ".$result['details']['bank_name'] }}</td>
+				<td>{{ $result['type']." ".$result['description'] }}</td>
 				<td>
 					<i class="fa fa-circle {{$statusclass}} fa-fw"></i>
 				</td>
-				<td>{{ date('D jS, M Y hA', strtotime($result['createdAt'])) }}</td>
 				<td>
 					<a class="dropdown-toggle" title="Edit" href="#viewTransferModalForm" data-toggle="modal"
                        data-href="{{url('initiateTransfer/update/'.$result['id'])}}">
@@ -88,9 +82,9 @@
 			@endforeach
 			
 			<tr>
-				<td colspan="4">{{ $pagination->render() }}</td>
+				<td colspan="3">{{ $pagination->render() }}</td>
 				<td colspan="2">
-                    <a href="{{url('initiateTransfer/create')}}"> <button type="button" class="btn btn-primary">New Transfer</button></a>
+                    <a href="{{url('transferRecipients/create')}}"> <button type="button" class="btn btn-primary">New Recipient</button></a>
 				</td>
 			</tr>
 

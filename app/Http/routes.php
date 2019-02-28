@@ -16,22 +16,39 @@ Route::get('/', function()
 	return View::make('home');
 });
 
-Route::get('/transfers2', [
+Route::get('/transactions', [
     //'middleware' => 'auth',
-    'uses' => 'HomeController@transfers'
+    'uses' => 'ApiController@transactions'
 ]);
 
-
-
-Route::get('/transfers', [
+Route::get('/balancehistory', [
     //'middleware' => 'auth',
-    'uses' => 'ApiController@transfersList'
+    'uses' => 'ApiController@balancehistory'
 ]);
 
+Route::group(['prefix' => 'initiateTransfer'], function () {
+    Route::get('/', 'Crud5Controller@index');
+    Route::match(['get'], 'show', 'ApiController@transfersList');
+    Route::match(['get', 'post'], 'create', 'ApiController@initiateTransfer');
+    Route::match(['post'], 'confirm', 'ApiController@finalizeTransfer');
+    Route::match(['get'], 'update/{id}', 'ApiController@transferdetails');
+    Route::delete('delete/{id}', 'Crud5Controller@delete');
+});
+
+Route::group(['prefix' => 'transferRecipients'], function () {
+    Route::get('/', 'Crud5Controller@index');
+    Route::match(['get'], 'show', 'ApiController@transferRecipientsList');
+    Route::match(['get', 'post'], 'create', 'ApiController@createTransferRecipient');
+    Route::match(['post'], 'confirm', 'ApiController@finalizeTransfer');
+    Route::match(['get'], 'update/{id}', 'ApiController@transferdetails');
+    Route::delete('delete/{id}', 'Crud5Controller@delete');
+});
 
 
 
- 
+
+
+
 
 
 Route::get('/newsupplier', function()
@@ -68,6 +85,9 @@ Route::get('/onetimepayment', function()
 {
 	return View::make('onetimepayment');
 });
+
+
+
 
 
 
