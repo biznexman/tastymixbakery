@@ -13,7 +13,7 @@
 
 Route::get('/', [
     //'middleware' => 'auth',
-    'uses' => 'ApiController@paystackBalance'
+    'uses' => 'ApiController@home'
 ]);
 
 Route::get('/transactions', [

@@ -10,7 +10,7 @@
                         <div class="panel-heading">
                             <div class="row">
                                 <div class="col-xs-3">
-                                    <i class="fa fa-user fa-5x"></i>
+                                    <i class="fa fa-money fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
                                     <div class="huge">
@@ -41,11 +41,11 @@
                         <div class="panel-heading">
                             <div class="row">
                                 <div class="col-xs-3">
-                                    <i class="fa fa-money fa-5x"></i>
+                                    <i class="fa fa-group fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="huge">12</div>
-                                    <div>Settled Bills!</div>
+                                    <div class="huge">{{ count($recipients->data) }}</div>
+                                    <div>Transfer Recipients!</div>
                                 </div>
                             </div>
                         </div>
@@ -63,11 +63,11 @@
                         <div class="panel-heading">
                             <div class="row">
                                 <div class="col-xs-3">
-                                    <i class="fa fa-edit fa-5x"></i>
+                                    <i class="fa fa-spinner fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="huge">124</div>
-                                    <div>Flagged for Reconciliation</div>
+                                    <div class="huge">{{ $transfers[2] }}</div>
+                                    <div>Pending Transfers!</div>
                                 </div>
                             </div>
                         </div>
@@ -85,11 +85,11 @@
                         <div class="panel-heading">
                             <div class="row">
                                 <div class="col-xs-3">
-                                    <i class="fa fa-spinner fa-5x"></i>
+                                    <i class="fa fa-times fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="huge">13</div>
-                                    <div>Pending Payments!</div>
+                                    <div class="huge">{{ $transfers[1] }}</div>
+                                    <div>Failed Transfers!</div>
                                 </div>
                             </div>
                         </div>

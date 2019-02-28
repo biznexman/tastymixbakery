@@ -14,7 +14,7 @@ use Illuminate\Pagination\LengthAwarePaginator;
 
 class ApiController extends Controller {
 
-	public function paystackBalance()
+	public function home()
     {
 
     	$client = new Client();
@@ -27,7 +27,12 @@ class ApiController extends Controller {
 
         $results = (object)json_decode($res->getBody(), true);
 
-        return view('home')->with('results',$results);
+        $transfers = $this->getTransfers();
+        $recipients = $this->getRecipients();
+
+        return view('home')->with('results',$results)
+        				->with('transfers',$transfers)
+        				->with('recipients',$recipients);
      
     }
 
@@ -47,6 +52,58 @@ class ApiController extends Controller {
         return $results;
      
     }
+
+    public function getTransfers()
+    {
+
+    	$cntsuccess = 0;
+    	$cntabandoned = 0;
+    	$cntotp = 0;
+
+    	$client = new Client();
+
+        $res = $client->request('GET', 'https://api.paystack.co/transfer',
+								    ['headers' => 
+								        ['Authorization' => "Bearer sk_test_b7eb5f49afc897786bb058635dce32dcb5f7d128"]
+								    ]
+							    );
+
+        $results = (object)json_decode($res->getBody(), true);
+
+        foreach ($results->data as $result) {
+        	if($result['status']=='success'){
+				$cntsuccess++;
+			}
+			elseif($result['status']=='abandoned'){
+				$cntabandoned++;
+			}
+			elseif($result['status']=='otp'){
+				$cntotp++;
+			}
+        }
+
+        return [$cntsuccess,$cntabandoned,$cntotp];
+     
+    }
+
+    public function getRecipients()
+    {
+
+    	$client = new Client();
+
+        $res = $client->request('GET', 'https://api.paystack.co/transferrecipient',
+								    ['headers' => 
+								        ['Authorization' => "Bearer sk_test_b7eb5f49afc897786bb058635dce32dcb5f7d128"]
+								    ]
+							    );
+
+        $results = (object)json_decode($res->getBody(), true);
+
+        return $results;
+     
+    }
+
+    // -----------------------------------------------------------------------------------------------------------------
 
 	public function transfersList(Request $page)
     {
