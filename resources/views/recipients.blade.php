@@ -75,12 +75,7 @@
 				<td>
 					<i class="fa fa-circle {{$statusclass}} fa-fw"></i>
 				</td>
-				<td>
-					<a class="dropdown-toggle" title="Edit" href="#viewTransferModalForm" data-toggle="modal"
-                       data-href="{{url('initiateTransfer/update/'.$result['id'])}}">
-                        <i class="fa fa-eye fa-fw"></i> 
-                    </a>
-				</td>
+				<td></td>
 			</tr>
 					
 			@endforeach

@@ -15,12 +15,12 @@
                                 <div class="col-xs-9 text-right">
                                     <div class="huge">
                                         @foreach($results->data as $result)
-                                            {{ $result['currency'] }}
+                                            {{ number_format(($result['balance']/100),0) }}
                                         @endforeach
                                     </div>
                                     <div>
                                         @foreach($results->data as $result)
-                                            {{ number_format($result['balance'],0) }}
+                                            {{ $result['currency'] }}
                                         @endforeach
                                     </div>
                                     <div>My Paystack Balance!</div>

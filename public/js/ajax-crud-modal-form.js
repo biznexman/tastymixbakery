@@ -73,6 +73,10 @@ $('#viewTransferModalForm').on('show.bs.modal', function (event) {
     var button = $(event.relatedTarget);
     ajaxLoad(button.data('href'), 'modal_content');
 });
+$('#viewTransactionModalForm').on('show.bs.modal', function (event) {
+    var button = $(event.relatedTarget);
+    ajaxLoad(button.data('href'), 'modal_content');
+});
 $('#newTransferModalForm').on('show.bs.modal', function (event) {
     var button = $(event.relatedTarget);
     ajaxLoad(button.data('href'), 'modal_content');

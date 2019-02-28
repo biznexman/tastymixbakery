@@ -32,7 +32,6 @@ Route::group(['prefix' => 'initiateTransfer'], function () {
     Route::match(['get', 'post'], 'create', 'ApiController@initiateTransfer');
     Route::match(['post'], 'confirm', 'ApiController@finalizeTransfer');
     Route::match(['get'], 'update/{id}', 'ApiController@transferdetails');
-    Route::delete('delete/{id}', 'Crud5Controller@delete');
 });
 
 Route::group(['prefix' => 'transferRecipients'], function () {
@@ -41,11 +40,16 @@ Route::group(['prefix' => 'transferRecipients'], function () {
     Route::match(['get', 'post'], 'create', 'ApiController@createTransferRecipient');
     Route::match(['post'], 'confirm', 'ApiController@finalizeTransfer');
     Route::match(['get'], 'update/{id}', 'ApiController@transferdetails');
-    Route::delete('delete/{id}', 'Crud5Controller@delete');
 });
 
 
-
+Route::group(['prefix' => 'transactions'], function () {
+    Route::get('/', 'Crud5Controller@index');
+    Route::match(['get'], 'show', 'ApiController@transactionsList');
+    Route::match(['get', 'post'], 'create', 'ApiController@initiateTransaction');
+    Route::match(['post'], 'confirm', 'ApiController@finalizeTransfer');
+    Route::match(['get'], 'update/{id}', 'ApiController@transactionDetails');
+});
 
 
 

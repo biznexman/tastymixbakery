@@ -31,6 +31,23 @@ class ApiController extends Controller {
      
     }
 
+    public function getBalance()
+    {
+
+    	$client = new Client();
+
+        $res = $client->request('GET', 'https://api.paystack.co/balance',
+								    ['headers' => 
+								        ['Authorization' => "Bearer sk_test_b7eb5f49afc897786bb058635dce32dcb5f7d128"]
+								    ]
+							    );
+
+        $results = (object)json_decode($res->getBody(), true);
+
+        return $results;
+     
+    }
+
 	public function transfersList(Request $page)
     {
         
@@ -38,7 +55,7 @@ class ApiController extends Controller {
 
         $page = LengthAwarePaginator::resolveCurrentPage();
 
-        $res = $client->request('GET', 'https://api.paystack.co/transfer?page='.$page.'&perPage=5',
+        $res = $client->request('GET', 'https://api.paystack.co/transfer?page='.$page.'&perPage=10',
 								    ['headers' => 
 								        ['Authorization' => "Bearer sk_test_b7eb5f49afc897786bb058635dce32dcb5f7d128"]
 								    ]
@@ -51,7 +68,7 @@ class ApiController extends Controller {
 
 		$pagination = new LengthAwarePaginator(range($page,$results->meta['total']),
 										        $results->meta['total'], //count as in 1st parameter
-										        5, //items per page
+										        10, //items per page
 										        [$page], //resolve the path
 										    	["path"=>LengthAwarePaginator::resolveCurrentPath()]);
 
@@ -79,7 +96,10 @@ class ApiController extends Controller {
 
 	        $results = (object)json_decode($res->getBody(), true);
 
-            return view('newTransferForm')->with('results',$results);
+	        $accountdetails = $this->getBalance();
+
+            return view('newTransferForm')->with('results',$results)
+            							->with('accountdetails',$accountdetails);
 
         }else {
 
@@ -187,6 +207,7 @@ class ApiController extends Controller {
 
     public function createTransferRecipient(Request $request)
     {
+        
         if ($request->isMethod('get')){
 
         	$client = new Client();
@@ -225,10 +246,103 @@ class ApiController extends Controller {
         
     }
 
-    public function transactions(Request $request)
+    public function transactionsList(Request $request)
     {
 
-        return view('transactions');
+    	$client = new Client();
+
+        $page = LengthAwarePaginator::resolveCurrentPage();
+
+        $res = $client->request('GET', 'https://api.paystack.co/transaction?page='.$page.'&perPage=10',
+								    ['headers' => 
+								        ['Authorization' => "Bearer sk_test_b7eb5f49afc897786bb058635dce32dcb5f7d128"]
+								    ]
+							    );
+
+        $results = (object)json_decode($res->getBody(), true);
+
+		$pagination = new LengthAwarePaginator(range($page,$results->meta['total']),
+										        $results->meta['total'], //count as in 1st parameter
+										        10, //items per page
+										        [$page], //resolve the path
+										    	["path"=>LengthAwarePaginator::resolveCurrentPath()]);
+
+		//var_dump($results); exit;
+
+        return view('transactions')->with('results', $results)
+        						->with('pagination', $pagination);
+        
+    }
+
+    public function transactionDetails(Request $request, $id)
+    {
+
+        $client = new Client();
+        $res = $client->request('GET', 'https://api.paystack.co/transaction/'.$id,
+								    ['headers' => 
+								        ['Authorization' => "Bearer sk_test_b7eb5f49afc897786bb058635dce32dcb5f7d128"]
+								    ]
+							    );
+
+        $results = (object)json_decode($res->getBody(), true);
+
+        return view('crud_5.viewtransactionform')->with('results', $results->data);
+    
+    }
+
+    public function initiateTransaction(Request $request)
+    {
+        if ($request->isMethod('get')){
+
+        	$client = new Client();
+
+	        $res = $client->request('GET', 'https://api.paystack.co/transferrecipient',
+									    ['headers' => 
+									        ['Authorization' => "Bearer sk_test_b7eb5f49afc897786bb058635dce32dcb5f7d128"]
+									    ]
+								    );
+
+	        $results = (object)json_decode($res->getBody(), true);
+
+	        $accountdetails = $this->getBalance();
+
+            return view('newTransferForm')->with('results',$results)
+            							->with('accountdetails',$accountdetails);
+
+        }else {
+
+            $client = new Client();
+	        $res = $client->request('POST', 'https://api.paystack.co/transfer',
+									    ['headers' => 
+									        ['Authorization' => "Bearer sk_test_b7eb5f49afc897786bb058635dce32dcb5f7d128"],
+									    'form_params' =>
+									        ['source' => "balance",
+									        'amount' => $request->input('amount'),
+									        'reason' => $request->input('transfernote'),
+									        'recipient' => $request->input('recipientcode')]
+									    ]
+								    );
+	        $results = (object)json_decode($res->getBody(), true);
+	    	
+
+
+	        $client2 = new Client();
+	        $rec = $client2->request('GET', 'https://api.paystack.co/transferrecipient',
+									    ['headers' => 
+									        ['Authorization' => "Bearer sk_test_b7eb5f49afc897786bb058635dce32dcb5f7d128"]
+									    ]
+								    );
+	        $recipients = (object)json_decode($rec->getBody(), true);
+
+	        foreach ($recipients->data as $recipient) {
+	        	if($recipient['id'] == $results->data['recipient']){
+	        		$recipientname = $recipient['name'];
+	        	}
+	        }
+
+			return view('confirmtransfer')->with('results', $results)
+										->with('recipientname', $recipientname);
+        }
         
     }
 

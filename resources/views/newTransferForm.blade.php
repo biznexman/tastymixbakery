@@ -41,6 +41,25 @@
 		            <button type="submit" class="btn btn-default">Start Transfer</button>
 		        </form>
 		    </div>
+
+		    <div class="col-lg-6 text-center">
+					@section ('typo4_panel_title','My Account')
+					@section ('typo4_panel_body')
+
+					<h2>
+						@foreach($accountdetails->data as $accountdetail)
+							{{ $accountdetail['currency'].' '.number_format(($accountdetail['balance']/100),0) }}
+						@endforeach
+						<small>Current Balance</small> 
+					</h2><br>
+
+					<a href="{{ url ('balancehistory') }}">
+						<button type="button" class="btn btn-default success btn-outline">Balance History</button>
+					</a>
+					@endsection
+					@include('widgets.panel', array('header'=>true, 'as'=>'typo4'))
+				
+		    </div>
 		</div>
 		</div>
 

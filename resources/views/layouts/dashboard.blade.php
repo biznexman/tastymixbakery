@@ -140,8 +140,8 @@
                         <li>
                             <a href="#"><i class="fa fa-money fa-fw"></i> Do Business<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
-                                <li {{ (Request::is('*transactions') ? 'class="active"' : '') }}>
-                                    <a href="{{ url ('transactions') }}">Transactions</a>
+                                <li {{ (Request::is('*transactions/show') ? 'class="active"' : '') }}>
+                                    <a href="{{ url ('transactions/show') }}">Transactions</a>
                                 </li>
                                 <li {{ (Request::is('*initiateTransfer/show') ? 'class="active"' : '') }}>
                                     <a href="{{ url ('initiateTransfer/show') }}">Transfers</a>
