@@ -234,7 +234,7 @@ class ApiController extends Controller {
     
     }
 
-    public function transferRecipientsList(Request $request)
+    public function transferRecipientsList()
     {
         
         $client = new Client();
@@ -298,12 +298,12 @@ class ApiController extends Controller {
 								    );
 	        $results = (object)json_decode($res->getBody(), true);
 
-	        $this->transferRecipientsList();
+	        return $this->transferRecipientsList();
         }
         
     }
 
-    public function transactionsList(Request $request)
+    public function transactionsList()
     {
 
     	$client = new Client();
