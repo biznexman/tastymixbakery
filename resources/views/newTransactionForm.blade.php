@@ -53,8 +53,8 @@
 						<small>Current Balance</small> 
 					</h2><br>
 
-					<a href="{{ url ('initiateTransfer/show') }}">
-						<button type="button" class="btn btn-default success btn-outline">Transfers</button>
+					<a href="{{ url ('balancehistory') }}">
+						<button type="button" class="btn btn-default success btn-outline">Balance History</button>
 					</a>
 					@endsection
 					@include('widgets.panel', array('header'=>true, 'as'=>'typo4'))

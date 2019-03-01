@@ -111,7 +111,7 @@
                         <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
                         </li>
                         <li class="divider"></li>
-                        <li><a href="{{ url ('login') }}"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                        <li><a href="{{ url ('handleLogout') }}"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                         </li>
                     </ul>
                     <!-- /.dropdown-user -->
@@ -149,9 +149,6 @@
                                 <li {{ (Request::is('*transferRecipients/show') ? 'class="active"' : '') }}>
                                     <a href="{{ url ('transferRecipients/show') }}">Recipients</a>
                                 </li>
-                                <li {{ (Request::is('*balancehistory') ? 'class="active"' : '') }}>
-                                    <a href="{{ url ('balancehistory') }}">Balance History</a>
-                                </li>
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
@@ -163,12 +160,12 @@
         </nav>
 
         <div id="page-wrapper">
-			 <div class="row">
+			<div class="row">
                 <div class="col-lg-12">
                     <h1 class="page-header">@yield('page_heading')</h1>
                 </div>
                 <!-- /.col-lg-12 -->
-           </div>
+            </div>
 			<div class="row">  
 				@yield('section')
 

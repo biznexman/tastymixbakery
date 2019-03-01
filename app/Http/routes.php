@@ -11,10 +11,17 @@
 |
 */
 
-Route::get('/auth/login', function()
-{
-	return View::make('login');
-});
+//Route::controller('/', 'Auth\AuthController');
+
+Route::get('/login', ['as' => 'login', 'uses' => 'AuthController@login']);
+
+Route::post('/handleLogin', ['as' => 'handleLogin', 'uses' => 'AuthController@handleLogin']);
+
+Route::get('/handleLogout', ['as' => 'handleLogout', 'uses' => 'AuthController@handleLogout']);
+
+Route::post('/handleRegistration', ['as' => 'handleRegistration', 'uses' => 'AuthController@handleRegistration']);
+
+
 
 Route::get('/', [
     //'middleware' => 'auth',

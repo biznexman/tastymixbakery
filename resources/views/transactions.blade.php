@@ -87,7 +87,7 @@
 			<tr>
 				<td colspan="4">{{ $pagination->render() }}</td>
 				<td colspan="2">
-                    <a href="{{url('transactions/create')}}"> <button type="button" class="btn btn-primary">New Transaction</button></a>
+                    <!--<a href="{{url('transactions/create')}}"> <button type="button" class="btn btn-primary">New Transaction</button></a>-->
 				</td>
 			</tr>
 

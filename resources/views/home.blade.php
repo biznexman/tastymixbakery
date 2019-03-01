@@ -51,7 +51,7 @@
                         </div>
                         <a href="#">
                             <div class="panel-footer">
-                                <span class="pull-left">View Details</span>
+                                <a href="{{ url ('transferRecipients/show') }}"><span class="pull-left">View Details</span></a>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
                                 <div class="clearfix"></div>
                             </div>
@@ -73,7 +73,7 @@
                         </div>
                         <a href="#">
                             <div class="panel-footer">
-                                <span class="pull-left">View Details</span>
+                                <a href="{{ url ('initiateTransfer/show') }}"><span class="pull-left">View Details</span></a>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
                                 <div class="clearfix"></div>
                             </div>
@@ -95,7 +95,7 @@
                         </div>
                         <a href="#">
                             <div class="panel-footer">
-                                <span class="pull-left">View Details</span>
+                                <a href="{{ url ('initiateTransfer/show') }}"><span class="pull-left">View Details</span></a>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
                                 <div class="clearfix"></div>
                             </div>
@@ -103,22 +103,6 @@
                     </div>
                 </div>
             </div>
-            <!-- /.row -->
-            <div class="row">
-                <div class="col-lg-8">
-                
-                
-                </div>
-                <!-- /.col-lg-8 -->
-                <div class="col-lg-4">
-                    @section ('cchart11_panel_title','Line Chart')
-                    @section ('cchart11_panel_body')
-                    @include('widgets.charts.clinechart')
-                    @endsection
-                    @include('widgets.panel', array('header'=>true, 'as'=>'cchart11'))
-                      
-                </div>
 
-                <!-- /.col-lg-4 -->
             
 @stop

@@ -1,7 +1,7 @@
 <?php namespace App\Http\Controllers;
 
 use GuzzleHttp\Client;
-
+use Illuminate\Support\Facades\Auth;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -14,8 +14,15 @@ use Illuminate\Pagination\LengthAwarePaginator;
 
 class ApiController extends Controller {
 
+	public function __construct()
+	{
+	    //echo auth()->user(); exit;
+	    //$this->middleware('auth');
+	}
+
 	public function home()
     {
+
 
     	$client = new Client();
 
@@ -363,7 +370,7 @@ class ApiController extends Controller {
 
 	        $accountdetails = $this->getBalance();
 
-            return view('newTransferForm')->with('results',$results)
+            return view('newTransactionForm')->with('results',$results)
             							->with('accountdetails',$accountdetails);
 
         }else {

@@ -6,7 +6,10 @@
             <br /><br /><br />
                @section ('login_panel_title','Please Sign In')
                @section ('login_panel_body')
-                        <form role="form">
+               
+                        <form role="form" method="POST" action="handleLogin">
+
+                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
                             <fieldset>
                                 <div class="form-group">
                                     <input class="form-control" placeholder="E-mail" name="email" type="email" autofocus>
@@ -20,7 +23,8 @@
                                     </label>
                                 </div>
                                 <!-- Change this to a button or input when using this as a form -->
-                                <a href="{{ url ('') }}" class="btn btn-lg btn-success btn-block">Login</a>
+                                <!-- <a href="{{ url ('') }}" class="btn btn-lg btn-success btn-block">Login</a> -->
+                                <input type="submit" class="btn btn-lg btn-success btn-block" name="submitbtn" value="login">
                             </fieldset>
                         </form>
                     
