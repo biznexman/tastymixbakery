@@ -15,10 +15,10 @@ class DatabaseSeeder extends Seeder {
 		Model::unguard();
 
 		$this->call('UsersTableSeeder');
-		$this->call('SuppliersTableSeeder');
-		$this->call('BillsTableSeeder');
-		$this->call('PaymentsTableSeeder');
-        $this->call('PaymentMethodsTableSeeder');
+		//$this->call('SuppliersTableSeeder');
+		//$this->call('BillsTableSeeder');
+		//$this->call('PaymentsTableSeeder');
+        //$this->call('PaymentMethodsTableSeeder');
 
         Model::reguard();
 	}
@@ -38,15 +38,11 @@ class UsersTableSeeder extends Seeder {
 	{
 
 		DB::table('users')->insert([
+            'testsecretkey' => 'sk_test_b7eb5f49afc897786bb058635dce32dcb5f7d128',
+            'testpublickey' => 'pk_test_8e20e4735c4128b7f6ffaec6661f83de709b4027',
             'username' => str_random(10),
-            'useremail' => 'admin@tastymixbakery.com',
-            'userpassword' => bcrypt('password'),
-        ]);
-
-        DB::table('users')->insert([
-            'username' => str_random(10),
-            'useremail' => 'user@tastymixbakery.com',
-            'userpassword' => bcrypt('password'),
+            'email' => 'admin@tastymixbakery.com',
+            'password' => bcrypt('password'),
         ]);
 	}
 

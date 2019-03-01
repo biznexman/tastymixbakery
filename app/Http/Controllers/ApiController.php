@@ -105,7 +105,7 @@ class ApiController extends Controller {
 
     // -----------------------------------------------------------------------------------------------------------------
 
-	public function transfersList(Request $page)
+	public function transfersList()
     {
         
         $client = new Client();
@@ -212,7 +212,7 @@ class ApiController extends Controller {
 							    );
         $results = (object)json_decode($res->getBody(), true);
 
-		$this->transfersList();
+		return $this->transfersList();
         
     }
 

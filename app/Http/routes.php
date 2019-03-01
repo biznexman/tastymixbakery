@@ -11,6 +11,11 @@
 |
 */
 
+Route::get('/auth/login', function()
+{
+	return View::make('login');
+});
+
 Route::get('/', [
     //'middleware' => 'auth',
     'uses' => 'ApiController@home'
