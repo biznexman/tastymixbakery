@@ -1,8 +1,6 @@
-# SB Admin v2.0 rewritten in Laravel
+# T.C II written in Laravel
 
-This project is a part of the famous Free Admin Bootstrap Theme SB Admin v2.0 to Laravel Theme.
-
-Find out more [Free Laravel Themes at StartLaravel.com](http://www.startlaravel.com/)..
+Simple web app to handle disbursements.
 
 ## Installation
 
