@@ -33,7 +33,7 @@
 		                    	<option value="{{ $result['code'] }}">{{ $result['name'] }}</option>
 		                    @endforeach
 		                </select>
-		                <p class="text-warning">Banks currently provisioned on testing environment (First Bank, Access Bank)</p>
+		                <p class="text-warning">Try these banks (First Bank, Access Bank)</p>
 		            </div>
 
 

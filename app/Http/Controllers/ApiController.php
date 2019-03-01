@@ -11,6 +11,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Routes;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Pagination\LengthAwarePaginator;
+use Validator;
 
 class ApiController extends Controller {
 
@@ -167,13 +168,20 @@ class ApiController extends Controller {
 
         }else {
 
+        	$this->validate($request, [
+		        'amount' => 'required',
+		        'recipientcode' => 'required',
+		    ]);
+
+		    $amount = $request->input('amount')*100;
+
             $client = new Client();
 	        $res = $client->request('POST', 'https://api.paystack.co/transfer',
 									    ['headers' => 
 									        ['Authorization' => "Bearer sk_test_b7eb5f49afc897786bb058635dce32dcb5f7d128"],
 									    'form_params' =>
 									        ['source' => "balance",
-									        'amount' => $request->input('amount'),
+									        'amount' => $amount,
 									        'reason' => $request->input('transfernote'),
 									        'recipient' => $request->input('recipientcode')]
 									    ]
@@ -290,6 +298,15 @@ class ApiController extends Controller {
 
         }else {
 
+        	$this->validate($request, [
+		        'accounttype' => 'required',
+		        'recipientname' => 'required',
+		        'bank' => 'required',
+		        'bank' => 'in:044,011',
+		        'accountnumber' => 'same:0000000000',
+		    ]);
+
+            
             $client = new Client();
 
 	        $res = $client->request('POST', 'https://api.paystack.co/transferrecipient',
